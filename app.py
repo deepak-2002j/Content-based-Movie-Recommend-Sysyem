@@ -47,83 +47,18 @@ if st.button('Show Recommendation'):
     recommended_movie_names,recommended_movie_posters = recommend_chat(selected_movie)
     col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
-        st.text(recommended_movie_names[0])
         st.image(recommended_movie_posters[0])
+        st.text(recommended_movie_names[0])
     with col2:
-        st.text(recommended_movie_names[1])
         st.image(recommended_movie_posters[1])
-
+        st.text(recommended_movie_names[1])
     with col3:
-        st.text(recommended_movie_names[2])
         st.image(recommended_movie_posters[2])
+        st.text(recommended_movie_names[2])
     with col4:
-        st.text(recommended_movie_names[3])
         st.image(recommended_movie_posters[3])
+        st.text(recommended_movie_names[3])
     with col5:
-        st.text(recommended_movie_names[4])
         st.image(recommended_movie_posters[4])
-
-
-
-
-
-
-# # app.py WORKING FILE STARTS
-#
-# import streamlit as st
-# from main import recommend, get_all_movies
-#
-# st.set_page_config(page_title="Movie Recommender", page_icon="🎬")
-#
-# st.title('🎬 Content-Based Movie Recommender')
-#
-# movie_list = get_all_movies()
-# selected_movie = st.selectbox(
-#     "Select a movie to get recommendations 👇",
-#     movie_list
-# )
-#
-# if st.button('Show Recommendation'):
-#     recommendations = recommend(selected_movie)
-#     for movie in recommendations:
-#         st.write(movie)
-# # WORKING FILE ENDS
-
-
-# app.py
-
-# import streamlit as st
-# import pickle
-#
-# # Load files
-# newdf = pickle.load(open("newdf.pkl", "rb"))
-# similarity = pickle.load(open("similarity.pkl", "rb"))
-#
-#
-# # Recommendation function
-# def recommend(movie):
-#     movie = movie.lower()
-#     if movie not in newdf["title"].str.lower().values:
-#         return ["Movie not found. Please check spelling."]
-#
-#     movie_index = newdf[newdf["title"].str.lower() == movie].index[0]
-#     distances = similarity[movie_index]
-#     movie_list = sorted(list(enumerate(distances)), reverse=True, key=lambda x: x[1])[1:6]
-#
-#     recommended_movies = [newdf.iloc[i[0]].title for i in movie_list]
-#     return recommended_movies
-#
-#
-# # Streamlit App
-# st.title("Movie Recommender System 🎬")
-#
-# selected_movie = st.text_input("Enter a movie name:")
-#
-# if st.button("Recommend"):
-#     if selected_movie:
-#         recommendations = recommend(selected_movie)
-#         st.subheader("Top 5 Recommendations:")
-#         for movie in recommendations:
-#             st.write(movie)
-#     else:
-#         st.warning("Please enter a movie name to get recommendations.")
+        st.text(recommended_movie_names[4])
+        
