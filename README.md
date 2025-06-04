@@ -1,52 +1,55 @@
-🎬 Content-Based Movie Recommender System
-A content-based movie recommender system built using NLP and cosine similarity that suggests movies similar to the user's input based on metadata like genres, cast, crew, keywords, and overview.
+# Movie Recommender System
 
-🚀 Features
-Extracts features like genres, cast, crew, keywords, and overview from TMDB dataset
+A content-based movie recommendation system built with Python and Streamlit that suggests similar movies based on genres, keywords, cast, crew, and plot overview.
 
-Processes text with stemming and vectorization (CountVectorizer)
+## Features
 
-Computes movie similarity using cosine similarity
+- **Content-Based Filtering**: Recommends movies based on similarity in genres, keywords, cast, crew, and plot
+- **Interactive Web Interface**: Built with Streamlit for easy movie selection
+- **Movie Posters**: Fetches and displays movie posters from TMDB API
+- **Text Processing**: Uses stemming and TF-IDF vectorization for improved accuracy
 
-Fetches movie posters using the TMDB API
+## Dataset
 
-Recommends top 10 similar movies based on user input
+Uses TMDB 5000 Movie Dataset:
+- `tmdb_5000_movies.csv` - Movie details (genres, keywords, overview)
+- `tmdb_5000_credits.csv` - Cast and crew information
 
-🧠 Tech Stack
-Python, Pandas, NumPy
+## Installation
 
-scikit-learn for vectorization and similarity calculation
+```bash
+pip install pandas numpy scikit-learn nltk streamlit requests
+```
 
-NLTK for stemming
+## Usage
 
-TMDB API for dynamic poster fetching
+1. **Data Preprocessing** (run once):
+   ```bash
+   python preprocessing.py
+   ```
 
-📁 Dataset
-tmdb_5000_movies.csv
+2. **Run Streamlit App**:
+   ```bash
+   streamlit run app.py
+   ```
 
-tmdb_5000_credits.csv
+3. Select a movie from the dropdown and click "Show Recommendation" to get 5 similar movies.
 
-📌 How It Works
-Extract and clean features like genres, keywords, cast, crew, and overview
+## How It Works
 
-Combine them into a single tags field
+1. **Feature Extraction**: Combines genres, keywords, cast, crew, and overview into tags
+2. **Text Processing**: Applies stemming and removes stop words
+3. **Vectorization**: Converts text to numerical vectors using CountVectorizer
+4. **Similarity Calculation**: Uses cosine similarity to find similar movies
+5. **Recommendation**: Returns top 5 most similar movies with posters
 
-Apply stemming and vectorization
+## Files
 
-Compute cosine similarity between movies
+- `preprocessing.py` - Data preprocessing and model training
+- `app.py` - Streamlit web application
+- `movie_list_dict.pkl` - Processed movie data
+- `similarity.pkl` - Precomputed similarity matrix
 
-Return top 10 similar movies with posters using the TMDB API
+## API Key
 
-📦 Output
-Recommended movie titles
-
-Movie posters for better UI integration
-
-🧪 Sample Function Call
-python
-Copy
-Edit
-titles, posters = recommend_chat("Avatar")
-📌 Note
-Requires a TMDB API key for poster fetching. Replace the key in fetch_poster() if needed.
-
+Requires TMDB API key for fetching movie posters. Replace the API key in the `fetch_poster()` function with your own key from [TMDB](https://www.themoviedb.org/settings/api).
